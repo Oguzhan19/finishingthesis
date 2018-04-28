@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Players</title>
+<title>Coaches</title>
 <link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/demo.css" />
@@ -14,7 +14,7 @@
 <div id="tabs">
 	<ul>
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
-		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="login.jsp"><span>Login</span></a></li>
 		<li><a href="registration.jsp"><span>Registration</span></a></li>
 	</ul>
@@ -25,31 +25,29 @@
 	<%
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
-		PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT DISTINCT name from players");
-		ResultSet rs = ps.executeQuery("select distinct name from players ");
+		PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT DISTINCT coachName from coaches");
+		ResultSet rs = ps.executeQuery("select distinct coachName from coaches ");
 	%>
 	<div class="component">
 		<table border="1">
 			<%
 				while (rs.next()) {
-					String playername = rs.getString("name");
+					String coachname = rs.getString("coachName");
 			%>
 
 			<tr>
-				<td><a href="showthePlayer.jsp?name=<%=playername%>">
+				<td><a href="showtheCoach.jsp?name=<%=coachname%>">
 						<form method="post" action="addDataForPlayer.jsp">
 							<%
-								out.println(playername);
+								out.println(coachname);
 							%>
 						</form>
 				</a></td>
+				<%
+					}
+				%>
 			</tr>
-
-			<%
-				}
-			%>
 		</table>
-		<a href="index.jsp">Main Page</a>
 	</div>
 </body>
 </html>

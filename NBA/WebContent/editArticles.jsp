@@ -9,6 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/styleeditArticles.css">
+<div id="tabs">
+	<ul>
+		<li><a href="index.jsp"><span>Main Page</span></a></li>
+		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
+		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="createArticles.jsp"><span>Create Artilces</span></a></li>
+	</ul>
+</div>
+
 </head>
 <body>
 	<form method="post" action="updateArticles-process.jsp">
@@ -16,29 +25,29 @@
 		<%
 			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
 		%>
-		You are not logged in! Please log in <a href="index.jsp">here.</a>
+		You are not logged in! Please log in <a href="login.jsp">here.</a>
 		<%
 			} else {
 		%>
 
 		<%
-			}
+			
 		%>
 
 		<%
 			String un1 = (String) session.getAttribute("username");
-			String Id = request.getParameter("id").toString();
-			int idd = Integer.parseInt(Id);
-			//out.println(idd);
+				String Id = request.getParameter("id").toString();
+				int idd = Integer.parseInt(Id);
+				//out.println(idd);
 
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from entries");
-			ResultSet rs = ps.executeQuery("select * from entries where entryId = '" + idd + "'");
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
+				PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from entries");
+				ResultSet rs = ps.executeQuery("select * from entries where entryId = '" + idd + "'");
 
-			while (rs.next()) {
-				String un = rs.getString("username");
-				//out.println(un);
+				while (rs.next()) {
+					String un = rs.getString("username");
+					//out.println(un);
 		%>
 		<input type="hidden" name="id" value="<%=rs.getString("entryId")%>">
 		<input type="hidden" name="username"
@@ -71,6 +80,7 @@
 							</div></td>
 					</tr>
 					<%
+						}
 						}
 					%>
 				</table>

@@ -9,14 +9,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Read the title here</title>
 <link rel="stylesheet" href="css/stylereadArticles.css">
+<div id="tabs">
+	<ul>
+		<li><a href="index.jsp"><span>Main Page</span></a></li>
+		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
+		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="createArticles.jsp"><span>Create Artilces</span></a></li>
+	</ul>
+</div>
 </head>
 <body>
 	<form method="post" action="read.jsp">
 
 		<%
 			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
-		%>
-		Click  <a href="home.jsp"> here</a> to go back to main page
+				%>
+		Click <a href="index.jsp"> here</a> to go back to main page
 		<%
 			} else {
 		%>
@@ -34,7 +42,7 @@
 		<%
 			String Id = request.getParameter("id").toString();
 			int idd = Integer.parseInt(Id);
-			out.println(idd);
+			//out.println(idd);
 
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
@@ -86,7 +94,7 @@
 				<%
 					if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
 				%>
-				
+
 				<tr>
 					<td>go back to <a href="index.jsp"> main </a> page
 				</tr>
@@ -95,10 +103,12 @@
 					} else {
 				%>
 				<tr>
-					<td><a href="deleteArticles.jsp?id=<%=rs.getString("entryId")%>"
+					<td><a
+						href="deleteArticles.jsp?id=<%=rs.getString("entryId")%>"
 						align="right">
 							<form method="post" action="delete.jsp"></form>delete
-					</a> <a href="editArticles.jsp?id=<%=rs.getString("entryId")%>" align="left">
+					</a> <a href="editArticles.jsp?id=<%=rs.getString("entryId")%>"
+						align="left">
 							<form method="post" action="edit.jsp"></form>edit
 					</a></td>
 				</tr>

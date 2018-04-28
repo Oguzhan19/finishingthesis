@@ -1,12 +1,11 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<div align="center">
-	<head>
-<b>Enter Information for a player </b>
-<link rel="stylesheet" href="css/styleprofile.css">
-	</head>
-</div>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Create Coaches</title>
+</head>
 <body>
 	<%
 		if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
@@ -16,18 +15,17 @@
 	<%
 		} else {
 	%>
-	<form method="post" action="databaseforCreatePlayer.jsp">
-
+	<form method="post" action="databaseforCreateCoaches.jsp">
 		<div align="center">
-
 			<table border="1" width="70%" cellpadding="5">
-				<thead>
+				<tbody>
 					<tr>
-						<td>Player's name</td>
-						<td><input type="text" name="name" value="" /></td>
+						<td>CoachName</td>
+						<td><input type="text" name="coachName" value=""></td>
 					</tr>
+
 					<tr>
-						<td>Player's team</td>
+						<td>Coach's team</td>
 						<td><select name="team">
 								<option>Atlanta Hawks</option>
 								<option>Boston Celtics</option>
@@ -63,9 +61,6 @@
 
 						</select></td>
 					</tr>
-				</thead>
-				<tbody>
-
 					<tr>
 						<td>Choose the Season</td>
 
@@ -112,43 +107,13 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td>BirthDate</td>
-						<td><input type="date" name="birthDate" value=""></td>
+						<td>Total games in the regular season</td>
+						<td><input type="text" name="games" value=""></td>
 					</tr>
 					<tr>
-						<td>Points in the selected season</td>
-						<td><input type="text" name="points" value=""></td>
+						<td>Total wins in the regular season</td>
+						<td><input type="text" name="wins" value=""></td>
 					</tr>
-					<tr>
-						<td>Rebounds in the selected season</td>
-						<td><input type="text" name="rebounds" value=""></td>
-					</tr>
-					<tr>
-						<td>Assists in the selected season</td>
-						<td><input type="text" name="assists" value=""></td>
-					</tr>
-					<tr>
-						<td>Steals in the selected season</td>
-						<td><input type="text" name="steals" value=""></td>
-					</tr>
-					<tr>
-						<td>Blocks in the selected season</td>
-						<td><input type="text" name="blocks" value=""></td>
-					</tr>
-					<tr>
-						<td>Turnovers in the selected season</td>
-						<td><input type="text" name="turnovers" value=""></td>
-					</tr>
-					<tr>
-						<td>Minutes in the selected season</td>
-						<td><input type="text" name="minutes" value=""></td>
-					</tr>
-					<tr>
-						<td>Total games played in the selected season</td>
-						<td><input type="text" name="gamesinTotal" value=""></td>
-					</tr>
-
-
 					<tr>
 						<td><input type="submit" value="Submit" /></td>
 						<td><input type="reset" value="Reset" /></td>
@@ -156,11 +121,9 @@
 				</tbody>
 			</table>
 		</div>
-
 	</form>
 	<%
 		}
 	%>
 </body>
-
 </html>

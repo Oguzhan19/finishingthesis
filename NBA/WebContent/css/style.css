@@ -14,7 +14,7 @@ h1#title {
 	font-weight: 300;
 	font-size: 3.2em;
 	color: white;
-	text-shadow: 0 0 10px rgba(0,0,0,0.8);
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 	margin: 0 auto;
 	padding-top: 180px;
 	max-width: 300px;
@@ -50,7 +50,6 @@ p.small {
 	margin: 20px 0 0;
 }
 
-
 /* Layout */
 .container {
 	margin: 0;
@@ -60,10 +59,15 @@ p.small {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	background: -moz-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.6) 0%,
+		rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.6) 0%,
+		rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%,
+		rgba(0, 0, 0, 0) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000',
+		endColorstr='#00000000', GradientType=0); /* IE6-9 */
 }
 
 .login-box {
@@ -74,7 +78,7 @@ p.small {
 	top: 80px;
 	padding-bottom: 30px;
 	border-radius: 5px;
-	box-shadow: 0 5px 50px rgba(0,0,0,0.4);
+	box-shadow: 0 5px 50px rgba(0, 0, 0, 0.4);
 	text-align: center;
 }
 
@@ -120,7 +124,7 @@ p.small {
 	font-size: 0.7em;
 	letter-spacing: 1px;
 	background-color: #665851;
-	cursor:pointer;
+	cursor: pointer;
 	outline: none;
 }
 
@@ -135,17 +139,73 @@ p.small {
 }
 
 .selected {
-	color: #665851!important;
+	color: #665851 !important;
 	transition: 0.5s;
 }
 
 /* Animation Delay */
 #logo {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 2s;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 2s;
 }
 
 .login-box {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 1s;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-delay: 1s;
 }
+
+/*Navigation Menu*/
+#tabs {
+	float: left;
+	width: 100%;
+	background: #a4a0e0;
+	font-size: 93%;
+	line-height: normal;
+}
+
+#tabs ul {
+	margin: 0;
+	padding: 10px 10px 0 50px;
+	list-style: none;
+}
+
+#tabs li {
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+#tabs a {
+	float: left;
+	background: url("tableft.gif") no-repeat left top;
+	margin: 0;
+	padding: 0 0 0 4px;
+	text-decoration: none;
+}
+
+#tabs a span {
+	float: left;
+	display: block;
+	background: url("tabright.gif") no-repeat right top;
+	padding: 5px 15px 4px 6px;
+	color: #004040;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+#tabs a span {
+	float: none;
+}
+
+/* End IE5-Mac hack */
+#tabs a:hover span {
+	color: #004080;
+}
+
+#tabs a:hover {
+	background-position: 0% -42px;
+}
+
+#tabs a:hover span {
+	background-position: 100% -42px;
+}
+/*Navigation Menu*/

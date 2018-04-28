@@ -12,6 +12,14 @@
 <link rel="stylesheet" href="css/style.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<div id="tabs">
+	<ul>
+		<li><a href="index.jsp"><span>Main Page</span></a></li>
+		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
+		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="login.jsp"><span>Registration</span></a></li>
+	</ul>
+</div>
 </head>
 <body>
 	<form method="post" action="registrationDatabase.jsp">

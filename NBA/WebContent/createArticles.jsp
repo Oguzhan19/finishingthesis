@@ -9,7 +9,13 @@
 </head>
 <body>
 	<form method="post" action="databaseforCreateArticles.jsp">
-
+		<%
+			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
+		%>
+		You are not logged in! Please log in <a href="login.jsp">here.</a>
+		<%
+			} else {
+		%>
 		<div align="center">
 
 
@@ -44,5 +50,7 @@
 		</div>
 	</form>
 </body>
-
+<%
+	}
+%>
 </html>

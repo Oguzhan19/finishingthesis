@@ -12,6 +12,14 @@
 <link rel="stylesheet" href="css/style.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<div id="tabs">
+	<ul>
+		<li><a href="index.jsp"><span>Main Page</span></a></li>
+		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
+		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="registration.jsp"><span>Registration</span></a></li>
+	</ul>
+</div>
 </head>
 
 <body>
@@ -30,10 +38,9 @@
 				<label for="uname">Username</label> <br /> <input type="text"
 					name="uname" value=""> <br /> <label for="pass">Password</label>
 				<br /> <input type="password" name="pass" value=""> <br />
-				<button type="submit" value="Login">Login </button>    
+				<button type="submit" value="Login">Login</button>
 				<button type="reset" value="Reset">Reset</button>
-				<br />
-                <a href="registration.jsp">Register here!</a>
+				<br /> <a href="registration.jsp">Register here!</a>
 			</div>
 		</div>
 
