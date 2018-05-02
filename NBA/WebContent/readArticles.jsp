@@ -23,7 +23,7 @@
 
 		<%
 			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
-				%>
+		%>
 		Click <a href="index.jsp"> here</a> to go back to main page
 		<%
 			} else {
@@ -41,6 +41,7 @@
 
 		<%
 			String Id = request.getParameter("id").toString();
+			//String at = request.getParameter("username");
 			int idd = Integer.parseInt(Id);
 			//out.println(idd);
 
@@ -86,31 +87,37 @@
 					<td>
 						<%
 							out.println("text: " + text);
+								String at = (String) session.getAttribute("username");
+								boolean answer;
+								if (at == null) {
+									answer = false;
+								} else {
+									answer = at.equals(usrname);
+								}
 						%>
 					</td>
 				</tr>
 
 
 				<%
-					if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
+					if (answer == true) {
+				%>
+				<tr>
+					<td><a
+						href="deleteArticles.jsp?id=<%=rs.getString("entryId")%>">
+							<form method="post" action="delete.jsp"></form>delete
+					</a> <a href="editArticles.jsp?id=<%=rs.getString("entryId")%>">
+							<form method="post" action="edit.jsp"></form>edit
+					</a></td>
+				</tr>
+				<%
+					}
+						if (answer == false || at == null) {
 				%>
 
 				<tr>
 					<td>go back to <a href="index.jsp"> main </a> page
-				</tr>
-				</td>
-				<%
-					} else {
-				%>
-				<tr>
-					<td><a
-						href="deleteArticles.jsp?id=<%=rs.getString("entryId")%>"
-						align="right">
-							<form method="post" action="delete.jsp"></form>delete
-					</a> <a href="editArticles.jsp?id=<%=rs.getString("entryId")%>"
-						align="left">
-							<form method="post" action="edit.jsp"></form>edit
-					</a></td>
+					</td>
 				</tr>
 				<%
 					}

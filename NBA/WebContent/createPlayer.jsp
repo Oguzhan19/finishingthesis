@@ -24,7 +24,7 @@
 				<thead>
 					<tr>
 						<td>Player's name</td>
-						<td><input type="text" name="name" value="" /></td>
+						<td><input type="text" name="name" value="" required /></td>
 					</tr>
 					<tr>
 						<td>Player's team</td>
@@ -69,7 +69,7 @@
 					<tr>
 						<td>Choose the Season</td>
 
-						<td><select name="season">
+						<td><select name="season" required>
 								<option>2017-2018</option>
 								<option>2016-2017</option>
 								<option>2015-2016</option>
@@ -113,39 +113,47 @@
 					</tr>
 					<tr>
 						<td>BirthDate</td>
-						<td><input type="date" name="birthDate" value=""></td>
+						<td><input type="date" name="birthDate" value="" required></td>
 					</tr>
 					<tr>
 						<td>Points in the selected season</td>
-						<td><input type="text" name="points" value=""></td>
+						<td><input type="number" step="any" name="points" value=""
+							required min="0" max="100" /></td>
 					</tr>
 					<tr>
 						<td>Rebounds in the selected season</td>
-						<td><input type="text" name="rebounds" value=""></td>
+						<td><input type="number" step="any" name="rebounds" value=""
+							required min="0" max="50" /></td>
 					</tr>
 					<tr>
 						<td>Assists in the selected season</td>
-						<td><input type="text" name="assists" value=""></td>
+						<td><input type="number" step="any" name="assists" value=""
+							required min="0" max="50" /></td>
 					</tr>
 					<tr>
 						<td>Steals in the selected season</td>
-						<td><input type="text" name="steals" value=""></td>
+						<td><input type="number" step="any" name="steals" value=""
+							required min="0" max="40" /></td>
 					</tr>
 					<tr>
 						<td>Blocks in the selected season</td>
-						<td><input type="text" name="blocks" value=""></td>
+						<td><input type="number" step="any" name="blocks" value=""
+							required min="0" max="30" /></td>
 					</tr>
 					<tr>
 						<td>Turnovers in the selected season</td>
-						<td><input type="text" name="turnovers" value=""></td>
+						<td><input type="number" step="any" name="turnovers" value=""
+							required min="0" max="20" /></td>
 					</tr>
 					<tr>
 						<td>Minutes in the selected season</td>
-						<td><input type="text" name="minutes" value=""></td>
+						<td><input type="number" step="any" name="minutes" value=""
+							required min="0" max="50" /></td>
 					</tr>
 					<tr>
 						<td>Total games played in the selected season</td>
-						<td><input type="text" name="gamesinTotal" value=""></td>
+						<td><input type="number" name="gamesinTotal" value=""
+							required pattern="" min="0" max="82" /></td>
 					</tr>
 
 

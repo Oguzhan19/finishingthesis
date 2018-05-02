@@ -76,6 +76,7 @@
 		<li><a href="registration.jsp"><span>Registration</span></a></li>
 	</ul>
 </div>
+
 <body>
 	<br />
 	<br />

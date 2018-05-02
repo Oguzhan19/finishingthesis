@@ -11,6 +11,9 @@
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
 <link rel="stylesheet" type="text/css" href="css/demo.css" />
 <link rel="stylesheet" type="text/css" href="css/component.css" />
+<%
+	/*Navigation Menu*/
+%>
 <div id="tabs">
 	<ul>
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
@@ -19,6 +22,9 @@
 		<li><a href="registration.jsp"><span>Registration</span></a></li>
 	</ul>
 </div>
+<%
+	/*Navigation Menu*/
+%>
 <br />
 </head>
 <body>
@@ -27,6 +33,20 @@
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
 		PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT DISTINCT name from players");
 		ResultSet rs = ps.executeQuery("select distinct name from players ");
+	%>
+	<br /> <br />
+	<%
+		/*Search Button*/
+	%>
+	<div class="container">
+		<form class="form-inline" method="post" action="showthePlayer.jsp">
+			<input type="text" name="name" class="form-control"
+				placeholder="Search name..">
+			<button type="submit" name="save" class="btn btn-primary">Search</button>
+		</form>
+	</div>
+	<%
+		/*Search Button*/
 	%>
 	<div class="component">
 		<table border="1">

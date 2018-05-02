@@ -36,8 +36,8 @@
 					<h2>Log In</h2>
 				</div>
 				<label for="uname">Username</label> <br /> <input type="text"
-					name="uname" value=""> <br /> <label for="pass">Password</label>
-				<br /> <input type="password" name="pass" value=""> <br />
+					name="uname" value="" required> <br /> <label for="pass">Password</label>
+				<br /> <input type="password" name="pass" value="" required> <br />
 				<button type="submit" value="Login">Login</button>
 				<button type="reset" value="Reset">Reset</button>
 				<br /> <a href="registration.jsp">Register here!</a>

@@ -77,6 +77,7 @@
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="logout.jsp"><span>Log Out</span></a></li>
 	</ul>
 </div>
 </head>
@@ -129,7 +130,7 @@
 					<tbody>
 						<tr>
 							<td><a
-								href="readArticles.jsp?id=<%=rsPagination.getString("entryId")%>">
+								href="readArticles.jsp?id=<%=rsPagination.getString("entryId")%>&?username=<%=rsPagination.getString("username")%>"">
 									<form method="post" action="readArtiles.jsp">
 										<%
 											out.println("Entry Id : " + id);

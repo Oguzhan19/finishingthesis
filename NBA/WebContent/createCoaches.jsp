@@ -21,12 +21,13 @@
 				<tbody>
 					<tr>
 						<td>CoachName</td>
-						<td><input type="text" name="coachName" value=""></td>
+						<td><input type="text" name="coachName" value="" required></td>
 					</tr>
 
 					<tr>
 						<td>Coach's team</td>
-						<td><select name="team">
+						<td><select name="team" required>
+								<option></option>
 								<option>Atlanta Hawks</option>
 								<option>Boston Celtics</option>
 								<option>Brooklyn Nets</option>
@@ -64,7 +65,8 @@
 					<tr>
 						<td>Choose the Season</td>
 
-						<td><select name="season">
+						<td><select name="season" required>
+								<option></option>
 								<option>2017-2018</option>
 								<option>2016-2017</option>
 								<option>2015-2016</option>
@@ -108,11 +110,13 @@
 					</tr>
 					<tr>
 						<td>Total games in the regular season</td>
-						<td><input type="text" name="games" value=""></td>
+						<td><input type="number" name="games" value="" required
+							min="0" max="82" /></td>
 					</tr>
 					<tr>
 						<td>Total wins in the regular season</td>
-						<td><input type="text" name="wins" value=""></td>
+						<td><input type="number" name="wins" value="" required
+							min="0" max="82" /></td>
 					</tr>
 					<tr>
 						<td><input type="submit" value="Submit" /></td>

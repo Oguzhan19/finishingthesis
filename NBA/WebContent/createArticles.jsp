@@ -26,14 +26,14 @@
 					<tr>
 
 						<td><b>Heading:</b> <br /> <input type="text" name="heading"
-							value="" /></td>
+							value="" required /></td>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 
 						<td><b>Entry:</b> <br /> <textarea name="paragraph_text"
-								cols="50" rows="10"></textarea></td>
+								cols="50" rows="10" required></textarea></td>
 					</tr>
 					<tr>
 						<td><div align="center">

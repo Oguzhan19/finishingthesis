@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="css/style.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<div id="tabs">
+<div id="tabs">
 	<ul>
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
-		<li><a href="login.jsp"><span>Registration</span></a></li>
+		<li><a href="login.jsp"><span>Log In</span></a></li>
 	</ul>
 </div>
 </head>
@@ -35,13 +35,18 @@
 					<h2>Register</h2>
 				</div>
 				<label for="first_name">First name</label> <br /> <input
-					type="text" name="first_name" value=""> <br /> <label
-					for="last_name">Last Name</label> <br /> <input type="text"
-					name="last_name" value=""> <br /> <label for="email">Email</label>
-				<br /> <input type="text" name="email" value=""> <br /> <label
+					type="text" name="first_name" value="" required
+					pattern="^[a-zA-Z]+$" /> <br /> <label for="last_name">Last
+					Name</label> <br /> <input type="text" name="last_name" value="" required
+					pattern="^[a-zA-Z]+$" /> <br /> <label for="email">Email</label>
+				<br /> <input type="text" name="email" value="" required
+					pattern="[^@]+@[^@]+\.[a-zA-Z]{0,9}"> <br /> <label
 					for="uname">Username</label> <br /> <input type="text"
-					name="uname" value=""> <br /> <label for="pass">Password</label>
-				<br /> <input type="password" name="pass" value=""> <br />
+					name="uname" value="" required/> <br /> <label for="pass">Password</label>
+				<br /> <input type="password" name="pass" value="" required
+					pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+					title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
+				<br />
 				<button type="submit" value="register">register</button>
 				<button type="reset" value="Reset">Reset</button>
 				<br />
@@ -49,23 +54,23 @@
 		</div>
 
 		<script>
-		$(document).ready(function() {
-			$('#logo').addClass('animated fadeInDown');
-			$("input:text:visible:first").focus();
-		});
-		$('#uname').focus(function() {
-			$('label[for="uname"]').addClass('selected');
-		});
-		$('#uname').blur(function() {
-			$('label[for="uname"]').removeClass('selected');
-		});
-		$('#pass').focus(function() {
-			$('label[for="pass"]').addClass('selected');
-		});
-		$('#pass').blur(function() {
-			$('label[for="pass"]').removeClass('selected');
-		});
-	</script>
+			$(document).ready(function() {
+				$('#logo').addClass('animated fadeInDown');
+				$("input:text:visible:first").focus();
+			});
+			$('#uname').focus(function() {
+				$('label[for="uname"]').addClass('selected');
+			});
+			$('#uname').blur(function() {
+				$('label[for="uname"]').removeClass('selected');
+			});
+			$('#pass').focus(function() {
+				$('label[for="pass"]').addClass('selected');
+			});
+			$('#pass').blur(function() {
+				$('label[for="pass"]').removeClass('selected');
+			});
+		</script>
 	</form>
 </body>
 </html>

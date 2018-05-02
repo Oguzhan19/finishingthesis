@@ -28,6 +28,20 @@
 		PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT DISTINCT coachName from coaches");
 		ResultSet rs = ps.executeQuery("select distinct coachName from coaches ");
 	%>
+	<br /> <br />
+	<%
+		/*Search Button*/
+	%>
+	<div class="container">
+		<form class="form-inline" method="post" action="showtheCoach.jsp">
+			<input type="text" name="name" class="form-control"
+				placeholder="Search name..">
+			<button type="submit" name="save" class="btn btn-primary">Search</button>
+		</form>
+	</div>
+	<%
+		/*Search Button*/
+	%>
 	<div class="component">
 		<table border="1">
 			<%
