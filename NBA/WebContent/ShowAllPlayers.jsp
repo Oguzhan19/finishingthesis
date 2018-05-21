@@ -18,6 +18,7 @@
 	<ul>
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="teams.jsp"><span>Teams</span></a></li>
 		<li><a href="login.jsp"><span>Login</span></a></li>
 		<li><a href="registration.jsp"><span>Registration</span></a></li>
 	</ul>
@@ -31,10 +32,11 @@
 	<%
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
-		PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT DISTINCT name from players");
+		PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from players");
 		ResultSet rs = ps.executeQuery("select distinct name from players ");
 	%>
-	<br /> <br />
+	<br />
+	<br />
 	<%
 		/*Search Button*/
 	%>

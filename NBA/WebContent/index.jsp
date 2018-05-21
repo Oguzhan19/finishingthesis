@@ -70,10 +70,26 @@
 </head>
 <div id="tabs">
 	<ul>
+		<li><a href="teams.jsp"><span>Teams</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<%
+			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
+		%>
 		<li><a href="login.jsp"><span>Login</span></a></li>
 		<li><a href="registration.jsp"><span>Registration</span></a></li>
+		<%
+			} else {
+		%>
+		<li><a href="profile.jsp"><span>Profile</span></a></li>
+		<li><a href="createArticles.jsp"><span>Create an Article</span></a></li>
+		<li><a href="createPlayer.jsp"><span>Create Player</span></a></li>
+		<li><a href="createCoaches.jsp"><span>Create Coach</span></a></li>
+		<li><a href="logout.jsp"><span>Log Out</span></a></li>
+		<%
+			}
+		%>
+
 	</ul>
 </div>
 
@@ -88,9 +104,11 @@
 			<table border="1" width="40%" cellpadding="3" bgcolor="#61ad75"
 				align="center">
 				<tr>
-					<td>Welcome to the nba website!! <a href="reg.jsp">
-							register</a> or <a href="login.jsp"> login</a>
-					</td>
+					<td><b>Welcome to the nba blog and
+							stats website!! In this website you can read and write freely
+							about nba if you have an account!! If you don't want to write
+							anything, you can get some information about teams, players,
+							coaches and more. See the navigation bar for stats.</b></td>
 				</tr>
 			</table>
 			<br />
@@ -98,30 +116,8 @@
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
 				//PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from entries ");
-				PreparedStatement ps2 = (PreparedStatement) con.prepareStatement("SELECT * from teams");
 				//ResultSet rs = ps.executeQuery("SELECT * from entries");
-				ResultSet rs2 = ps2.executeQuery("select * from teams ");
-				while (rs2.next()) {
-					String tname = rs2.getString("teamName");
-			%>
-			<table border="1" width="40%" cellpadding="3" bgcolor="#61ad75"
-				align="center" cellspacing="10">
-				<tbody>
-					<tr>
-						<td><a href="team.jsp?id=<%=rs2.getString("id")%>">
-								<form method="post" action="team.jsp">
-									<%
-										out.println(tname);
-									%>
-								</form>
-						</a></td>
-					</tr>
-				</tbody>
-			</table>
-			<%
-				}
-			%>
-			<%
+
 				while (rsPagination.next()) {
 					Object usrname = rsPagination.getObject("username");
 					String id = rsPagination.getString("entryId");
@@ -159,7 +155,11 @@
 					<tr>
 						<td>
 							<%
-								out.println("text: " + text);
+								if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
+										out.println("text: *****");
+									} else {
+										out.println("text: " + text);
+									}
 							%> <br />
 						</td>
 					</tr>

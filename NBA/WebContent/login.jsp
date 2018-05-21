@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP Example</title>
+<title>Log In Page</title>
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900'
 	rel='stylesheet' type='text/css'>
@@ -17,6 +17,7 @@
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="teams.jsp"><span>Teams</span></a></li>
 		<li><a href="registration.jsp"><span>Registration</span></a></li>
 	</ul>
 </div>

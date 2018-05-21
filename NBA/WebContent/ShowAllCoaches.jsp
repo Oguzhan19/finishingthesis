@@ -15,6 +15,7 @@
 	<ul>
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
+		<li><a href="teams.jsp"><span>Teams</span></a></li>
 		<li><a href="login.jsp"><span>Login</span></a></li>
 		<li><a href="registration.jsp"><span>Registration</span></a></li>
 	</ul>

@@ -116,37 +116,37 @@
 						<td><input type="date" name="birthDate" value="" required></td>
 					</tr>
 					<tr>
-						<td>Points in the selected season</td>
+						<td> Average of points in the selected season</td>
 						<td><input type="number" step="any" name="points" value=""
 							required min="0" max="100" /></td>
 					</tr>
 					<tr>
-						<td>Rebounds in the selected season</td>
+						<td>Average of rebounds in the selected season</td>
 						<td><input type="number" step="any" name="rebounds" value=""
 							required min="0" max="50" /></td>
 					</tr>
 					<tr>
-						<td>Assists in the selected season</td>
+						<td>Average of assists in the selected season</td>
 						<td><input type="number" step="any" name="assists" value=""
 							required min="0" max="50" /></td>
 					</tr>
 					<tr>
-						<td>Steals in the selected season</td>
+						<td>Average of steals in the selected season</td>
 						<td><input type="number" step="any" name="steals" value=""
 							required min="0" max="40" /></td>
 					</tr>
 					<tr>
-						<td>Blocks in the selected season</td>
+						<td>Average of blocks in the selected season</td>
 						<td><input type="number" step="any" name="blocks" value=""
 							required min="0" max="30" /></td>
 					</tr>
 					<tr>
-						<td>Turnovers in the selected season</td>
+						<td>Average of turnovers in the selected season</td>
 						<td><input type="number" step="any" name="turnovers" value=""
 							required min="0" max="20" /></td>
 					</tr>
 					<tr>
-						<td>Minutes in the selected season</td>
+						<td>Average of minutes played in the selected season</td>
 						<td><input type="number" step="any" name="minutes" value=""
 							required min="0" max="50" /></td>
 					</tr>

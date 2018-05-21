@@ -13,15 +13,17 @@
 	String turnovers = request.getParameter("turnovers");
 	String minutes = request.getParameter("minutes");
 	String gamesinTotal = request.getParameter("gamesinTotal");
+	int approval = 0;
 	Class.forName("com.mysql.jdbc.Driver");
 
 	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
 	Statement st = con.createStatement();
 	//ResultSet rs;
-	int i = st.executeUpdate("insert into players(name, team, season, birthDate, points, rebounds, assists, steals, blocks, turnovers, minutes, gamesinTotal) values ('"
+	int i = st.executeUpdate(
+			"insert into players(name, team, season, birthDate, points, rebounds, assists, steals, blocks, turnovers, minutes, gamesinTotal, approval) values ('"
 					+ name + "','" + team + "','" + season + "','" + birthDate + "','" + points + "','"
 					+ rebounds + "','" + assists + "','" + steals + "','" + blocks + "','" + turnovers + "','"
-					+ minutes + "','" + gamesinTotal + "')");
+					+ minutes + "','" + gamesinTotal + "','" + approval + "')");
 	if (i > 0) {
 		response.sendRedirect("index.jsp");
 	} else {

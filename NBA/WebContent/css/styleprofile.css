@@ -6,7 +6,7 @@ body {background: url("../images/831308.jpg") no-repeat center center fixed;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	margin: 0;
-	color: #004000;}
+	color: #000000;}
 
 h1, table { text-align: center; }
 
@@ -14,15 +14,15 @@ table {border-collapse: collapse;  width: 50%; margin: 0 auto 5rem;}
 
 th, td { padding: 1.5rem; font-size: 1.3rem; }
 
-tr {background: hsl(50, 50%, 80%); }
+tr {background: hsl(0, 0%, 100%); }
 
 tr, td { transition: .4s ease-in; } 
 
-tr:first-child {background: hsla(152, 100%, 40%, 0.5); }
+tr:first-child {background: hsla(1, 100%, 100%, 1.0); }
 
-tr:nth-child(even) { background: hsla(50, 50%, 80%, 0.7); }
+tr:nth-child(even) { background: hsla(0, 0%, 75%, 1.0); }
 
-td:empty {background: hsla(50, 25%, 60%, 0.7); }
+td:empty {background: hsla(240, 100%, 75%, 1.0); }
 
  /*Navigation Menu*/
 #tabs {

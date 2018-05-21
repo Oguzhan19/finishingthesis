@@ -3,7 +3,8 @@
 <html>
 <head>
 <div align="center">
-	<h1>NBA hakkında bir konu oluşturun</h1>
+	<title>Create Articles</title>
+	<h1><b>Create an article about NBA</b></h1>
 </div>
 <link rel="stylesheet" href="css/styleeditArticles.css">
 </head>
@@ -17,10 +18,6 @@
 			} else {
 		%>
 		<div align="center">
-
-
-			<%=session.getAttribute("username")%>
-
 			<table border="1" width="35%" cellpadding="5" bgcolor="#61ad75">
 				<thead>
 					<tr>

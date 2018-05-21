@@ -17,6 +17,7 @@
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="teams.jsp"><span>Teams</span></a></li>
 		<li><a href="login.jsp"><span>Log In</span></a></li>
 	</ul>
 </div>
@@ -73,6 +74,4 @@
 		</script>
 	</form>
 </body>
-</html>
-
 </html>

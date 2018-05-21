@@ -9,42 +9,39 @@
 <link rel="stylesheet" href="css/stylereadArticles.css">
 </head>
 <body>
-<div id="tabs">
-	<ul>
-		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
-		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
-		<li><a href="login.jsp"><span>Login</span></a></li>
-		<li><a href="registration.jsp"><span>Registration</span></a></li>
-	</ul>
-</div>
+	<div id="tabs">
+		<ul>
+			<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
+			<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+			<li><a href="teams.jsp"><span>Teams</span></a></li>
+			<li><a href="login.jsp"><span>Login</span></a></li>
+			<li><a href="registration.jsp"><span>Registration</span></a></li>
+		</ul>
+	</div>
 	<form method="post" action="read.jsp">
 
 		<%
-			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
-			} else {
-		%>
-		You can crate some players and discuss about the topic <a
-			href="createPlayer.jsp">here!</a>
-		<%
-			}
 			String Id = request.getParameter("id").toString();
-			int idd = Integer.parseInt(Id);
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from teams");
-
-			ResultSet rs = ps.executeQuery("select * from teams where id = '" + idd + "'");
+			Boolean check = Id.equals(null);
+			if (check == true) {
+				response.sendRedirect("index.jsp");
+			} else {
+				int idd = Integer.parseInt(Id);
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
+				PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from teams");
+				ResultSet rs = ps.executeQuery("select * from teams where id = '" + idd + "'");
 		%>
 
 		<table border="1" width="30%" cellpadding="5">
 			<tbody>
 				<%
 					while (rs.next()) {
-						String teamName = rs.getString("teamName");
-						String city = rs.getString("city");
-						String homeArena = rs.getString("homeArena");
-						String foundedAt = rs.getString("foundedAt");
-						String owners = rs.getString("owners");
+							String teamName = rs.getString("teamName");
+							String city = rs.getString("city");
+							String homeArena = rs.getString("homeArena");
+							String foundedAt = rs.getString("foundedAt");
+							String owners = rs.getString("owners");
 				%>
 				<tr>
 					<td>
@@ -96,13 +93,14 @@
 
 				<%
 					}
-						PreparedStatement ps1 = (PreparedStatement) con.prepareStatement("SELECT distinct name from players");
-						ResultSet rs1 = ps1.executeQuery(
-								"select distinct name from players where team = '" + teamName + "' and season='2017-2018'");
-						PreparedStatement ps2 = (PreparedStatement) con
-								.prepareStatement("SELECT distinct coachName from coaches");
-						ResultSet rs2 = ps2.executeQuery("select distinct coachName from coaches where team = '" + teamName
-								+ "' and season='2017-2018'");
+							PreparedStatement ps1 = (PreparedStatement) con
+									.prepareStatement("SELECT distinct name from players");
+							ResultSet rs1 = ps1.executeQuery(
+									"select distinct name from players where team = '" + teamName + "' and season='2017-2018'");
+							PreparedStatement ps2 = (PreparedStatement) con
+									.prepareStatement("SELECT distinct coachName from coaches");
+							ResultSet rs2 = ps2.executeQuery("select distinct coachName from coaches where team = '" + teamName
+									+ "' and season='2017-2018'");
 				%>
 				<table border="1" width="30%" cellpadding="5">
 					<tbody>
@@ -111,36 +109,34 @@
 						</tr>
 						<%
 							while (rs2.next()) {
-									String coachname = rs2.getString("coachName");
-									%>
+										String coachname = rs2.getString("coachName");
+						%>
 						<tr>
-							<td>
-								The Coach : <a href="showtheCoach.jsp?name=<%=coachname%>">
-						<form method="post" action="addDataForPlayer.jsp">
-							<%
-								out.println(coachname);
-							%>
-						</form>
-				</a>
+							<td>The Coach : <a
+								href="showtheCoach.jsp?name=<%=coachname%>">
+									<form method="post" action="addDataForPlayer.jsp">
+										<%
+											out.println(coachname);
+										%>
+									</form>
+							</a>
 							</td>
 						</tr>
-						<% 
-								}
+						<%
+							}
 						%>
 						<%
 							while (rs1.next()) {
-									String playername = rs1.getString("name");
+										String playername = rs1.getString("name");
 						%>
 						<tr>
-							<td>
-								<a href="showthePlayer.jsp?name=<%=playername%>">
-						<form method="post" action="addDataForPlayer.jsp">
-							<%
-								out.println(playername);
-							%>
-						</form>
-				</a>
-							</td>
+							<td><a href="showthePlayer.jsp?name=<%=playername%>">
+									<form method="post" action="addDataForPlayer.jsp">
+										<%
+											out.println(playername);
+										%>
+									</form>
+							</a></td>
 						</tr>
 
 						<%
@@ -149,6 +145,7 @@
 					</tbody>
 				</table>
 				<%
+					}
 					}
 				%>
 			</tbody>

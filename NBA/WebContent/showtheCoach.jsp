@@ -45,7 +45,16 @@
 					String team = rs.getString("team");
 					String games = rs.getString("games");
 					String wins = rs.getString("wins");
+					int approval = rs.getInt("approval");
+					if (approval == 0) {
 			%>
+			<b>There are contributions for the selected coach which are not
+				approved yet!</b>
+			<%
+					}
+					if (approval == 1) {
+			%>
+
 
 			<tbody>
 				<tr>
@@ -81,7 +90,8 @@
 				</tr>
 				<%
 					}
-				%>
+			
+					}%>
 
 			</tbody>
 		</table>

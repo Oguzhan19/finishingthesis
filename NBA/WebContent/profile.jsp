@@ -22,7 +22,8 @@
 		}
 		return conv;
 	}%>
-<%String un1 = (String) session.getAttribute("username");
+<%
+	String un1 = (String) session.getAttribute("username");
 	Connection conn = null;
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
@@ -50,7 +51,8 @@
 		iPageNo = Math.abs((iPageNo - 1) * iShowRows);
 	}
 
-	String sqlPagination = "SELECT SQL_CALC_FOUND_ROWS * FROM entries where username = '" + un1 + "' limit " + iPageNo + "," + iShowRows + "";
+	String sqlPagination = "SELECT SQL_CALC_FOUND_ROWS * FROM entries where username = '" + un1 + "' limit "
+			+ iPageNo + "," + iShowRows + "";
 
 	psPagination = conn.prepareStatement(sqlPagination);
 	rsPagination = psPagination.executeQuery();
@@ -75,9 +77,14 @@
 <div id="tabs">
 	<ul>
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
+		<li><a href="teams.jsp"><span>Teams</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
+		<li><a href="createArticles.jsp"><span>Create an Article</span></a></li>
+		<li><a href="createPlayer.jsp"><span>Create Player</span></a></li>
+		<li><a href="createCoaches.jsp"><span>Create Coach</span></a></li>
 		<li><a href="logout.jsp"><span>Log Out</span></a></li>
+
 	</ul>
 </div>
 </head>
@@ -95,27 +102,49 @@
 				<%
 					} else {
 				%>
-				<h1>
-					Welcome
-					<%
-					Object un = session.getAttribute("username");
-						out.println(un);
-				%>
-					You can crate some titles and discuss about the topic <a
-						href="createArticles.jsp">here!</a>
-				</h1>
-				<%
+				<table border="1">
+					<thead>
+						<tr>
+							<td><h4>
+									<b> Welcome <%
+										Object un = session.getAttribute("username");
+											out.println(un);
+									%> !! This is your profile page. You can crate some titles and
+										discuss about a topic <a href="createArticles.jsp">here!</a>
+								</h4> </b></td>
+						</tr>
+
+						<%
 					}
 				%>
+					
 			</div>
 			<%
-				
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
-				//PreparedStatement ps = (PreparedStatement) con
-					//	.prepareStatement("SELECT * from entries where username = '" + un1 + "'");
-				//ResultSet rs = ps.executeQuery("select * from entries where username = '" + un1 + "'");
+				PreparedStatement ps = (PreparedStatement) con
+						.prepareStatement("SELECT * from users where uname = '" + un1 + "'");
+				ResultSet rs = ps.executeQuery("select * from users where uname = '" + un1 + "'");
+			%>
 
+			<tr>
+				<td>
+					<%
+							while (rs.next()) {
+								int gold = rs.getInt("goldMembership");
+
+								if (gold == 1) {
+						%> <b>You have a gold membership so you can click <a
+						href="goldenPage.jsp">here</a> to see contributions which are
+						wating for your approval!!
+				</b>
+				</td>
+			</tr>
+			</thead>
+			</table>
+			<%
+				}
+				}
 				while (rsPagination.next()) {
 
 					Object usrname = rsPagination.getObject("username");
@@ -128,6 +157,9 @@
 			<div align="center">
 				<table border="1" width="30%" cellpadding="5">
 					<tbody>
+						<tr>
+							<td></td>
+						</tr>
 						<tr>
 							<td><a
 								href="readArticles.jsp?id=<%=rsPagination.getString("entryId")%>&?username=<%=rsPagination.getString("username")%>"">

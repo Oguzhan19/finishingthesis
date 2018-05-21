@@ -40,12 +40,10 @@
 				String Id = request.getParameter("id").toString();
 				int idd = Integer.parseInt(Id);
 				//out.println(idd);
-
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
 				PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from entries");
 				ResultSet rs = ps.executeQuery("select * from entries where entryId = '" + idd + "'");
-
 				while (rs.next()) {
 					String un = rs.getString("username");
 					//out.println(un);
@@ -54,10 +52,10 @@
 		<input type="hidden" name="username"
 			value="<%=rs.getString("username")%>">
 		<div align="center">
-			<table border="1" width="50%" cellpadding="4" bgcolor="#61ad75">
+			<table border="1" width="40%" cellpadding="4" bgcolor="#61ad75">
 				<tr>
 					<td><div align="center">
-							<h2>Update data from database in jsp</h2>
+							<h2>Update your article</h2>
 						</div></td>
 				</tr>
 			</table>

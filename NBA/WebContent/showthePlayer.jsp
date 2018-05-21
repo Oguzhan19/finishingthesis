@@ -59,6 +59,14 @@
 					String turnovers = rs.getString("turnovers");
 					String minutes = rs.getString("minutes");
 					String gamesinTotal = rs.getString("gamesinTotal");
+					int approval = rs.getInt("approval");
+					if (approval == 0) {
+			%>
+			<b>There are contributions for the selected player which are not
+				approved yet!</b>
+			<%
+				}
+					if (approval == 1) {
 			%>
 
 			<tbody>
@@ -133,12 +141,14 @@
 				%>
 
 			</tbody>
+			<%
+				}
+			%>
 		</table>
 
 		click <a href="createPlayer.jsp?name=<%=name%>">
 			<form method="post" action="addDataForPlayer.jsp">here</form>
-		</a> to add more data for the player
-		--<a href="index.jsp">Main Page</a>
+		</a> to add more data for the player --<a href="index.jsp">Main Page</a>
 	</div>
 </body>
 </html>

@@ -1,23 +1,16 @@
 <%@ page import="java.sql.*"%>
 
 <%
-	String Id = request.getParameter("id").toString();
-	String heading = request.getParameter("heading");
-	if (heading == null)
-		heading = "";
-	String text = request.getParameter("paragraph_text");
-	if (text == null)
-		text = "";
-	Object Uname = session.getAttribute("username");
+	int approval = Integer.parseInt(request.getParameter("approval"));
+	String id = request.getParameter("id").toString();
 	Class.forName("com.mysql.jdbc.Driver");
 
 	try {
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "gunslinger");
-		String sql = "Update entries set heading=?,text=?,username=? where entryId=" + Id;
+		String sql = "Update players set approval=? where id=" + id;
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, heading);
-		ps.setString(2, text);
-		ps.setObject(3, Uname);
+		ps.setInt(1, approval);
+
 		int i = ps.executeUpdate();
 		if (i > 0) {
 			response.sendRedirect("profile.jsp");

@@ -14,31 +14,30 @@
 		<li><a href="index.jsp"><span>Main Page</span></a></li>
 		<li><a href="ShowAllPlayers.jsp"><span>Players</span></a></li>
 		<li><a href="ShowAllCoaches.jsp"><span>Coaches</span></a></li>
-		<li><a href="createArticles.jsp"><span>Create Artilces</span></a></li>
+		<%
+			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
+		%>
+		<li><a href="login.jsp"><span>Login</span></a></li>
+		<li><a href="registration.jsp"><span>Registration</span></a></li>
+		<%
+			} else {
+		%>
+		<li><a href="profile.jsp"><span>Profile</span></a></li>
+		<li><a href="createArticles.jsp"><span>Create an
+					Article</span></a></li>
+		<li><a href="createPlayer.jsp"><span>Create Player</span></a></li>
+		<li><a href="createCoaches.jsp"><span>Create Coach</span></a></li>
+		<li><a href="logout.jsp"><span>Log Out</span></a></li>
+		<%
+			}
+		%>
 	</ul>
 </div>
 </head>
 <body>
 	<form method="post" action="read.jsp">
 
-		<%
-			if ((session.getAttribute("username") == null) || (session.getAttribute("username") == "")) {
-		%>
-		Click <a href="index.jsp"> here</a> to go back to main page
-		<%
-			} else {
-		%>
-
-		<%
-			
-		%>
-		You can crate some titles and discuss about the topic <a
-			href="create.jsp">here!</a>
-
-		<%
-			}
-		%>
-
+		<br /> <br />
 		<%
 			String Id = request.getParameter("id").toString();
 			//String at = request.getParameter("username");
@@ -50,7 +49,7 @@
 			PreparedStatement ps = (PreparedStatement) con.prepareStatement("SELECT * from entries");
 			ResultSet rs = ps.executeQuery("select * from entries where entryId = '" + idd + "'");
 		%>
-
+		<br /> <br />
 		<table border="1" width="30%" cellpadding="5">
 			<tbody>
 				<%
@@ -59,6 +58,8 @@
 						String id = rs.getString("entryId");
 						String heading = rs.getString("heading");
 						String text = rs.getString("text");
+						if ((session.getAttribute("username") == null) || (session.getAttribute("username") == ""))
+							text = "*****";
 				%>
 				<tr>
 					<td>
@@ -115,10 +116,7 @@
 						if (answer == false || at == null) {
 				%>
 
-				<tr>
-					<td>go back to <a href="index.jsp"> main </a> page
-					</td>
-				</tr>
+
 				<%
 					}
 					}
